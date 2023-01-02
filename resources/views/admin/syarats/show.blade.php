@@ -95,7 +95,7 @@
                                             Pas Photo
                                         </th>
                                         <td>
-                                            <a target="_blank" href="{{ asset('/storage/' . $syarat->photo) }}">{{ $syarat->photo }}</a>
+                                            <img target="_blank" src="{{ asset('/storage/' . $syarat->photo) }}">
                                         </td>
                                         <td>
                                             @if ($syarat->photostatus == 0)

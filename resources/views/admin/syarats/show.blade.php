@@ -84,7 +84,7 @@
                                     </tr>
                                     <tr>
                                         <th>
-                                            Nama Skripsi
+                                            judul Skripsi
                                         </th>
                                         <td colspan="2">
                                             {{ $syarat->judul ?? '' }}
@@ -92,10 +92,68 @@
                                     </tr>
                                     <tr>
                                         <th>
+                                            Pas Photo
+                                        </th>
+                                        <td>
+                                            <a target="_blank" href="{{ asset('/storage/' . $syarat->photo) }}">{{ $syarat->photo }}</a>
+                                        </td>
+                                        <td>
+                                            @if ($syarat->photostatus == 0)
+                                                <div>
+                                                    <i class="fa-2x fas fa-ellipsis-h"></i>
+                                                </div>
+                                                <div>
+                                                    <form action="{{ route('admin.syarats.update', $syarat->id) }}"
+                                                        enctype="multipart/form-data" method="post">
+                                                        @csrf
+                                                        @method('PATCH')
+                                                        <div class="form-group">
+                                                            <select class="form-control" name="photostatus"
+                                                                id="photostatus">
+                                                                <option selected hidden>Pilih Salah Satu!</option>
+                                                                <option value="1">Tolak</option>
+                                                                <option value="2">Setujui</option>
+                                                            </select>
+                                                        </div>
+                                                        <button class="btn btn-success btn-sm"
+                                                            type="submit">Verif</button>
+                                                    </form>
+                                                </div>
+                                            @elseif ($syarat->photostatus == 1)
+                                                <div class="d-flex">
+                                                    <i class="fa-2x fas fa-times text-danger"></i>
+                                                    <div>
+                                                        <form action="{{ route('admin.syarats.update', $syarat->id) }}"
+                                                            enctype="multipart/form-data" method="post">
+                                                            @csrf
+                                                            @method('PATCH')
+                                                            <input type="hidden" name="photostatus" value="2">
+                                                            <button class="btn btn-success btn-sm"
+                                                                type="submit">Verif</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            @elseif ($syarat->photostatus == 2)
+                                                <i class="fas fa-check fa-2x text-success"></i>
+                                                <div>
+                                                    <form action="{{ route('admin.syarats.update', $syarat->id) }}"
+                                                        enctype="multipart/form-data" method="post">
+                                                        @csrf
+                                                        @method('PATCH')
+                                                        <input type="hidden" name="photostatus" value="1">
+                                                        <button class="btn btn-danger btn-sm"
+                                                            type="submit">Tolak</button>
+                                                    </form>
+                                                </div>
+                                            @endif
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
                                             Sertifikat PPMB
                                         </th>
                                         <td>
-                                            <a href="{{ asset('/storage/' . $syarat->ppmb) }}">{{ $syarat->ppmb }}</a>
+                                            <a target="_blank" href="{{ asset('/storage/' . $syarat->ppmb) }}">{{ $syarat->ppmb }}</a>
                                         </td>
                                         <td>
                                             @if ($syarat->ppmbstatus == 0)
@@ -154,7 +212,7 @@
                                         </th>
                                         <td>
                                             <a
-                                                href="{{ asset('/storage/' . $syarat->serticalonsarjana) }}">{{ $syarat->serticalonsarjana }}</a>
+                                            target="_blank" href="{{ asset('/storage/' . $syarat->serticalonsarjana) }}">{{ $syarat->serticalonsarjana }}</a>
                                         </td>
                                         <td>
                                             @if ($syarat->serticalonsarjanastatus == 0)
@@ -214,7 +272,7 @@
                                         </th>
                                         <td>
                                             <a
-                                                href="{{ asset('/storage/' . $syarat->sertibebasperpus) }}">{{ $syarat->sertibebasperpus }}</a>
+                                            target="_blank" href="{{ asset('/storage/' . $syarat->sertibebasperpus) }}">{{ $syarat->sertibebasperpus }}</a>
                                         </td>
                                         <td>
                                             @if ($syarat->sertibebasperpusstatus == 0)
@@ -274,7 +332,7 @@
                                         </th>
                                         <td>
                                             <a
-                                                href="{{ asset('/storage/' . $syarat->sertimaba) }}" target="_blank">{{ $syarat->sertimaba }}</a>
+                                            target="_blank"  href="{{ asset('/storage/' . $syarat->sertimaba) }}" target="_blank">{{ $syarat->sertimaba }}</a>
                                         </td>
                                         <td>
                                             @if ($syarat->sertimabastatus == 0)
@@ -333,7 +391,7 @@
                                         </th>
                                         <td>
                                             <a
-                                                href="{{ asset('/storage/' . $syarat->bebaslab) }}" target="_blank">{{ $syarat->bebaslab }}</a>
+                                            target="_blank" href="{{ asset('/storage/' . $syarat->bebaslab) }}" target="_blank">{{ $syarat->bebaslab }}</a>
                                         </td>
                                         <td>
                                             @if ($syarat->bebaslabstatus == 0)
@@ -392,7 +450,7 @@
                                         </th>
                                         <td>
                                             <a
-                                                href="{{ asset('/storage/' . $syarat->transkrip) }}">{{ $syarat->transkrip }}</a>
+                                            target="_blank" href="{{ asset('/storage/' . $syarat->transkrip) }}">{{ $syarat->transkrip }}</a>
                                         </td>
                                         <td>
                                             @if ($syarat->transkripstatus == 0)
@@ -451,7 +509,7 @@
                                         </th>
                                         <td>
                                             <a
-                                                href="{{ asset('/storage/' . $syarat->pembayaran) }}">{{ $syarat->pembayaran }}</a>
+                                            target="_blank"  href="{{ asset('/storage/' . $syarat->pembayaran) }}">{{ $syarat->pembayaran }}</a>
                                         </td>
                                         <td>
                                             @if ($syarat->pembayaranstatus == 0)

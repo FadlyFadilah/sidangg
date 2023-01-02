@@ -6,7 +6,7 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Ubah Data Orang Tua
+                    Ubah Data Syarat
                 </div>
                 <div class="panel-body">
                     <form method="POST" action="{{ route("admin.orangtuas.update", [$orangtua->id]) }}" enctype="multipart/form-data">

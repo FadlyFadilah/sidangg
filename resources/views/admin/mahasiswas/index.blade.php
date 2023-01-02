@@ -30,7 +30,7 @@
                                     <th>
                                         Nama
                                     <th>
-                                        NIK
+                                        NPM
                                     </th>
                                     <th>
                                         Prodi

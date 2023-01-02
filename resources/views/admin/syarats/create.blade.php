@@ -6,7 +6,7 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Buat Data Orang Tua
+                    Buat Data Syarat
                 </div>
                 <div class="panel-body">
                     <form method="POST" action="{{ route("admin.syarats.store") }}" enctype="multipart/form-data">

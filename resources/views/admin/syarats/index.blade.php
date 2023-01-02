@@ -30,6 +30,9 @@
 
                                         </th>
                                         <th>
+                                            NPM
+                                        </th>
+                                        <th>
                                             Mahasiswa
                                         </th>
                                         <th>
@@ -48,6 +51,9 @@
                                         <tr data-entry-id="{{ $syarat->id }}">
                                             <td>
 
+                                            </td>
+                                            <td>
+                                                {{ $syarat->mahasiswa->user->nik ?? '' }}
                                             </td>
                                             <td>
                                                 {{ $syarat->mahasiswa->user->name ?? '' }}
@@ -158,6 +164,9 @@
 
             $.extend(true, $.fn.dataTable.defaults, {
                 orderCellsTop: true,
+                order: [
+                    [1, 'desc']
+                ],
                 pageLength: 100,
             });
             let table = $('.datatable-syarat:not(.ajaxTable)').DataTable({

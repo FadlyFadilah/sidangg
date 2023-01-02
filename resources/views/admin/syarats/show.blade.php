@@ -95,7 +95,7 @@
                                             Pas Photo
                                         </th>
                                         <td>
-                                            <img width="240px" target="_blank" src="{{ asset('/storage/' . $syarat->photo) }}">
+                                            <img width="150px" target="_blank" src="{{ asset('/storage/' . $syarat->photo) }}">
                                         </td>
                                         <td>
                                             @if ($syarat->photostatus == 0)
